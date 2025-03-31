@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Variables
+IAM_USER="awsadmin"
+IAM_GROUP="aws-team"
+BUCKET_NAME="automation-bucket-$RANDOM"
+IMAGE_ID="ami-0abcdef1234567890"
+INSTANCE_TYPE="t2.micro"
+KEY_NAME="my-key-pair"
+SECURITY_GROUP_NAME="automation-sg"
+
+# Step 1: IAM User & Group
+aws iam create-group --group-name $IAM_GROUP
+aws iam create-user --user-name $IAM_USER
+aws iam add-user-to-group --user-name $IAM_USER --group-name $IAM_GROUP
+
+# Step 2: Create Security Group
+SECURITY_GROUP_ID=$(aws ec2 create-security-group --group-name $SECURITY_GROUP_NAME --description "Automation SG" --query 'GroupId' --output text)
+aws ec2 authorize-security-group-ingress --group-id $SECURITY_GROUP_ID --protocol tcp --port 22 --cidr 0.0.0.0/0
+
+# Step 3: Launch EC2 Instance
+aws ec2 run-instances \
+    --image-id $IMAGE_ID \
+    --instance-type $INSTANCE_TYPE \
+    --key-name $KEY_NAME \
+    --security-group-ids $SECURITY_GROUP_ID \
+    --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=AutomatedInstance}]'
+
+# Step 4: Create S3 Bucket & Upload File
+aws s3 mb s3://$BUCKET_NAME
+echo "AWS CLI Automation Success!" > test-file.txt
+aws s3 cp test-file.txt s3://$BUCKET_NAME/
+
+echo "Infrastructure Automation Completed Successfully!"

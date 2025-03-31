@@ -1,0 +1,15 @@
+---
+- name: Example Ansible Playbook
+  hosts: webserver
+  tasks:
+    - name: Ensure Nginx is installed
+      become: true
+      apt:
+        name: nginx
+        state: present
+    
+    - name: Ensure Nginx service is running
+      become: true
+      service:
+        name: nginx
+        state: started

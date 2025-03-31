@@ -1,0 +1,124 @@
+ Project: Implementing IAM Roles and Policies
+ Objective: Create IAM users, groups, roles, and policies to manage access control for AWS resources.
+ Set Up IAM Users and Groups:
+
+Create an IAM user for yourself with administrative privileges.
+Create a new IAM group (e.g., "Developers") and add the IAM user to this group.
+Create another IAM user and add this user to the "Developers" group.
+
+Create IAM Roles:
+
+Create an IAM role with permissions for read-only access to S3 buckets.
+Create another IAM role with permissions to access EC2 instances.
+Attach these roles to IAM users or EC2 instances as needed
+
+Define IAM Policies:
+
+Create a custom IAM policy that grants permissions to list and read objects from specific S3 buckets.
+Create a policy that allows full access to a specific DynamoDB table.
+Attach these policies to IAM groups or roles appropriately.
+
+Testing Access:
+
+Log in using the IAM user with administrative privileges and explore the AWS Management Console.
+Switch to the IAM user without administrative privileges and see what resources are accessible.
+Launch an EC2 instance and ensure it can access S3 or DynamoDB based on the attached IAM role.
+
+IAM Best Practices:
+
+Learn and apply IAM best practices, such as using least privilege, regularly reviewing access, and enabling Multi-Factor Authentication (MFA) for IAM users. 
+
+
+
+Project 1: Using Amazon EBS for Data Persistence.
+
+Objective: Create an Amazon EC2 instance, attach an EBS volume to it, and set up a simple web server that stores data on the attached EBS volume.
+
+reate an EC2 Instance:
+
+Launch an EC2 instance of your preferred operating system in the AWS Management Console.
+Select an instance type and configure the instance settings.
+
+Create an EBS Volume:
+
+Create a new EBS volume in the same AWS region as the EC2 instance.
+Set the desired size and storage type for the EBS volume.
+
+Attach EBS Volume to EC2 Instance:
+
+Attach the EBS volume to the EC2 instance you created in Step 1.
+Note the device name (e.g., /dev/sdf) that is assigned to the attached volume.
+
+Format and Mount the EBS Volume:
+
+Connect to your EC2 instance using SSH.
+Format the EBS volume with a file system (e.g., ext4).
+Mount the EBS volume to a directory (e.g., /mnt/data) on your EC2 instance.
+
+Configure a Web Server:
+
+Install a web server (e.g., Apache or Nginx) on your EC2 instance.
+Set up the web server to serve content from the mounted EBS volume directory.
+
+st Data Persistence:
+
+Create a sample HTML file in the /mnt/data directory on your EC2 instance.
+Access the web server using its public IP address to verify that the data persists on the EBS volume.
+
+
+Project 2: Implementing Amazon EFS for Shared File Storage
+
+Objective: Set up an Amazon EFS file system and configure multiple EC2 instances to share files through the file system.
+
+Create an Amazon EFS File System:
+
+Create an EFS file system in the AWS Management Console.
+Choose the desired settings, including the appropriate availability zones.
+
+Mount EFS on EC2 Instances:
+
+Launch two or more EC2 instances in the same VPC and subnet.
+Install the NFS client package on the EC2 instances.
+
+Mount EFS on EC2 Instances:
+
+Mount the EFS file system on each EC2 instance using the Amazon EFS mount helper.
+Ensure the file system is mounted to the same directory path on all instances (e.g., /mnt/efs).
+
+Share Data Among Instances:
+
+Create a sample file on one of the EC2 instances in the /mnt/efs directory.
+Access the other EC2 instances and verify that they can see the same file in the shared directory.
+
+Project: Static Website Hosting with AWS S3 and CloudFront
+
+Objective: Host a static website using AWS S3 for storage and Amazon CloudFront for content delivery and distribution.
+
+Set up an S3 Bucket:
+Create an S3 bucket to store your website's static files (e.g., HTML, CSS, JavaScript, images). Enable public read access for the bucket and the objects. 
+
+Upload Your Website:
+ Upload your static website files to the S3 bucket. Make sure the main HTML file is named "index.html" to serve it as the default page.
+ 
+ onfigure Static Website Hosting:
+ Enable static website hosting on the S3 bucket and specify the index document (e.g., index.html).
+ 
+ Test Your Website:
+ Access the website using the provided S3 endpoint URL to ensure it's working correctly.
+ 
+ Set Up Amazon CloudFront: 
+ 
+ Create a CloudFront distribution to serve your website's content with low latency and high data transfer speeds.
+ 
+ Configure CloudFront with S3 Origin:
+ 
+ Configure CloudFront to use your S3 bucket as the origin for distributing content.
+ 
+ Update DNS Settings:
+ If you have a custom domain, update your DNS settings to point to the CloudFront distribution.
+                     
+	Test CloudFront Distribution:	
+	Access your website using the CloudFront URL and verify that it is working and delivering content efficiently.
+	
+	Monitor Your Website: 
+	Explore AWS CloudWatch to monitor your S3 bucket and CloudFront distribution metrics, such as data transfer and requests.

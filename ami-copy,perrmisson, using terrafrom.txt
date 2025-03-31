@@ -1,0 +1,37 @@
+create ami using snpshot
+
+resource "aws_ami" "example" {
+  name                = "terraform-example"
+  root_device_name    = "/dev/xvda"
+  ebs_block_device {
+    device_name = "/dev/xvda"
+    snapshot_id = "snap-xxxxxxxx"
+    volume_size = 8
+  }
+}
+
+create ami usning inasttance base
+
+resource "aws_ami_from_instance" "example" {
+  name               = "terraform-example"
+  source_instance_id = "i-xxxxxxxx"
+}
+
+
+copy ami one region to other region
+
+resource "aws_ami_copy" "example" {
+  name              = "terraform-example"
+  description       = "A copy of ami-xxxxxxxx"
+  source_ami_id     = "ami-xxxxxxxx"
+  source_ami_region = "us-west-1"
+
+  tags = {
+    Name = "HelloWorld"
+  }
+}
+
+resource "aws_ami_launch_permission" "example" {
+  image_id   = "ami-number"
+  account_id = "   "
+}

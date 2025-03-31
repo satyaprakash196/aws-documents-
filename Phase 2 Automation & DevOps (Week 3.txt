@@ -1,0 +1,25 @@
+Phase 2: Automation & DevOps (Week 3-4)
+🎯 Objective: AWS Infrastructure automation using Terraform & Ansible for Network Automation.
+
+✅ Day 1-2: Terraform Basics & AWS Automation
+
+Terraform installation & setup
+AWS services ko automate karna (EC2, IAM, S3, Security Groups, VPC)
+Terraform State Management
+Remote State (S3 + DynamoDB)
+✅ Day 3-4: Ansible for Network Automation
+
+Ansible installation & YAML scripting
+SSH-based automation for Linux & Network Devices
+AWS instance & networking components ke liye Ansible Playbooks likhna
+Ansible Vault for secret management
+✅ Day 5-6: End-to-End Network Automation Project
+
+Terraform + Ansible se poora AWS Infra deploy karna
+IAM Users, VPC, Security Groups, Load Balancer, EC2 auto-scaling
+Monitoring with AWS CloudWatch & SNS Alerts
+✅ Day 7: Project Deployment + Resume Enhancement
+
+Full project showcase
+Resume aur LinkedIn par DevOps profile optimize karna
+Mock Interviews for DevOps roles

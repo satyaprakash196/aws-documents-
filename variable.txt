@@ -1,0 +1,16 @@
+variable "satya" {
+default ="ami-0ccabb5f82d4c9af5"
+}
+variable "value" {
+ default ="t2.micro"
+}
+
+
+resource "aws_instance" "example" {
+  ami           =var.satya
+  instance_type = var.value
+
+  tags = {
+    Name = "web-server"
+  }
+}

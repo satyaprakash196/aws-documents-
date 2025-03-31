@@ -1,0 +1,13 @@
+1. Create 2 VPCs - VPC-A and VPC-B with non-overlapping CIDR range
+2. Create 1 public, 1 private subnets in each VPC-A
+3. Create 1 private subnet in VPC-B
+4. Create 1 instance in each VPC in subnets created above.
+5. For VPC-A Public EC2 instance open security group 22 for your Public IP (Myip)
+6. For VPC-A Private EC2 instance open security group 22 for VPC-A public subnet CIDR
+7. For VPC-B EC2, open security group to allow port 22 and ICMP from other VPC-A private subnet CIDR
+8. Login (ssh) to VPC-A Public EC2 instance. From there connect to VPC-A Private instance.You should be able to connect. (You need to have ssh key)
+9. From VPC-A Private EC2, try to connect to VPC-B EC2 over Private IP. Does not connect.
+10. Now create VPC peering between VPC-A and VPC-B. 
+11. Accept peering request from requested VPC-B
+12. Modify route tables for both the subnets and add corresponding routes. i.e in VPC-A Subnet route table add route for destination as VPC-B CIDR and vice-a-versa.
+13. Now try again to connect or ping  from VPC-A EC2 to VPC-B EC2 using Private IP. You should be able to connect/ping

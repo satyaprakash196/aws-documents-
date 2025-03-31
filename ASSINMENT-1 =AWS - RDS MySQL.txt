@@ -1,0 +1,15 @@
+1. Create a VPC, Internet Gateway
+2. Create 1 Public subnet and 2 private subnets in different AZs
+3. Go to RDS - Create DB Subnet group and add above 2 private subnets
+4. Launch MySQL instance (db.t2.micro, Single AZ)
+5. Go to RDS Security group and allow port 3306 access to VPC CIDR
+6. Launch EC2 instance in Public Subnet with SSH (22) access for your IP
+7. Login to EC2 over SSH and execute following commands (use your details)
+
+$ sudo yum install mysql
+$ mysql -h "your db instance endpoint" -P 3306 -u master -p
+$ show databases;
+$ use rds;
+$ create table awstraining (name VARCHAR(30), batch INT(2), phone VARCHAR(10), email VARCHAR(30));
+$ insert into awstraining  values ('Chetan', 3, '9x2x5x3x6x', 'awstrainingcenter@gmail.com');
+$ select * from awstraining;

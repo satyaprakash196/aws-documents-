@@ -1,0 +1,28 @@
+1-What is AWS IAM?
+AWS Identity and Access Management (IAM) is a service that enables you to manage access to AWS resources securely. It allows you to control who has access to your resources and what actions they can perform.
+
+2-What is the root user in AWS IAM?
+
+The root user is the initial identity created when an AWS account is set up. It has complete access to all AWS resources and services. Best practice is to not use the root user for everyday tasks and to create IAM users with appropriate permissions instead.
+
+3-What is multi-factor authentication (MFA) and why is it important?
+MFA adds an extra layer of security to the AWS account by requiring users to provide two or more authentication factors: something they know (password) and something they have (MFA device). It helps protect against unauthorized access.
+
+Virtual MFA Device:
+This is the most common form of MFA in AWS. Users install an MFA application, such as Google Authenticator or Authy, on their mobile device. The app generates time-based one-time passwords (TOTPs) that users enter along with their password during login.
+
+Hardware MFA Device:
+Users can use a hardware device, like a YubiKey, as their MFA token. This device generates one-time passwords that users input along with their passwords. Hardware tokens are more resistant to phishing attacks.
+
+SMS Text Message MFA:
+In this method, users receive an MFA code via SMS on their registered mobile number. They enter this code along with their password during login. While SMS MFA is better than no MFA, it's considered less secure due to potential vulnerabilities in SMS communication.
+
+Voice Call MFA:
+Similar to SMS, users receive an MFA code via a voice call to their registered phone number. They input this code along with their password. Voice call MFA is also less secure than other methods.
+
+
+4-What are IAM users, groups, and roles?
+
+IAM Users: Individuals within your organization who need access to AWS resources.
+IAM Groups: A collection of IAM users. You can assign permissions to groups, making it easier to manage access for multiple users.
+IAM Roles: Used to delegate permissions to AWS services or trusted entities. Roles are often used for applications running on EC2 instances or Lambda functions.

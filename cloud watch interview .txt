@@ -1,0 +1,29 @@
+What is Amazon CloudWatch?
+Amazon CloudWatch is a monitoring and observability service provided by AWS that collects and tracks metrics, logs, and events from various AWS resources and applications, allowing you to gain insights and ensure the performance of your infrastructure.
+
+What types of data can you monitor using CloudWatch?
+CloudWatch can monitor metrics (such as CPU utilization, network traffic), logs (text-based logs from applications), and events (changes to AWS resources). This allows you to have a comprehensive view of your applications and infrastructure.
+
+How can you collect custom metrics in CloudWatch?
+You can publish custom metrics to CloudWatch using the CloudWatch PutMetricData API. This is useful for monitoring application-specific metrics or custom system-level metrics.
+
+What are CloudWatch Alarms?
+CloudWatch Alarms are used to monitor metrics over a specified time period and trigger actions when those metrics breach predefined thresholds. Actions can include sending notifications via Amazon SNS or triggering an Auto Scaling policy.
+
+Explain the difference between CloudWatch Logs and CloudWatch Metrics.
+CloudWatch Logs are used to collect, monitor, and analyze log data from applications and resources, while CloudWatch Metrics are numerical data representing the performance of resources. Logs are text-based, while metrics are data points with associated timestamps.
+
+How can you set up a CloudWatch dashboard?
+CloudWatch Dashboards allow you to create customizable visualizations of your metrics, logs, and alarms. You can add graphs, text widgets, and other visual elements to display the information you're interested in.
+
+What is CloudWatch Events?
+CloudWatch Events allow you to respond to changes in your AWS environment. You can create rules that match events and trigger actions such as invoking Lambda functions, starting EC2 instances, or sending notifications.
+
+Explain the concept of CloudWatch Logs Insights.
+CloudWatch Logs Insights is a feature that allows you to query and analyze your log data interactively. You can run queries to identify patterns, troubleshoot issues, and gain insights from your log data.
+
+How can you enable detailed monitoring for EC2 instances?
+By default, EC2 instances have basic monitoring enabled, which collects data every 5 minutes. To enable detailed monitoring, which collects data every 1 minute, you can enable it during instance launch or modify it for existing instances.
+
+What is CloudWatch Container Insights?
+CloudWatch Container Insights is a feature that provides automated dashboards and metrics for monitoring containerized applications running on Amazon ECS and Amazon EKS. It helps you gain visibility into the performance and health of your containerized applications.

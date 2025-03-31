@@ -1,0 +1,53 @@
+Introduction 
+Advantage of IAC
+=============================
+Downloading and installation (Terraform)
+==================================
+EC2 creation with terraform 
+============================
+Security Group Creation using terraform 
+========================================
+AMI create and copy in other account using terraform
+===============================================================
+S3 bucket using terraform
+==============================================================
+Comments in Terraform
+===============================================================
+Variable in terraform
+===========================================================
+Various ways to use variable in terraform 
+=============================================================
+Data types in Terraform
+========================================================
+Count parameter in terraform
+=======================================================
+Index parameter in terraform
+======================================================
+IF ELSE (conditional statement ) in terraform
+======================================================
+Terraform locals
+=====================================================
+Terraform output
+=====================================================
+Terraform Backend store .tfstate file in other location (in s3)
+============================================================
+Terraform Workspace
+============================================================
+Terraform Provisioner
+===========================================================
+Terraform Import 
+============================================================
+Terraform Module
+===========================================================
+Terraform Target
+============================================================
+Terraform taint and untaint 
+===========================================================
+Terraform Fmt 
+========================================================
+RDS Instance creation in aws using terraform
+=======================================================
+
+
+Project:- Two Tier architecture using Terraform in aws class
+

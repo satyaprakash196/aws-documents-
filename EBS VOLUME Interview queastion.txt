@@ -1,0 +1,39 @@
+=What is Amazon Elastic Block Store (EBS)?
+Amazon EBS is a block storage service that provides scalable and high-performance block storage volumes for use with Amazon EC2 instances. It allows you to create and attach persistent block storage to your instances.
+
+What are the different types of EBS volumes?
+=Amazon EBS offers several types of volumes:
+
+General Purpose SSD (gp2): Provides a balance of price and performance for a wide variety of workloads.
+Provisioned IOPS SSD (io1): Designed for I/O-intensive workloads, allowing you to specify a specific amount of IOPS.
+Throughput Optimized HDD (st1): Optimized for large, sequential workloads, providing low-cost storage for data that is frequently accessed.
+Cold HDD (sc1): Designed for less frequently accessed workloads with large, sequential I/O.
+Magnetic (standard): Older and lower-cost storage option suitable for workloads with infrequent access.
+=What is EBS Snapshot?
+An EBS snapshot is a point-in-time copy of an EBS volume. It can be used to create new volumes, migrate data, and back up volumes. Snapshots are incremental, meaning only the changes since the last snapshot are stored.
+
+=How can you improve the performance of an EBS volume?
+To improve EBS volume performance, you can:
+
+Use Provisioned IOPS (io1) volumes for high-performance workloads.
+Use instance storage (if available) for temporary and cache-intensive data.
+Optimize instance types to match storage requirements.
+Distribute I/O across multiple volumes using techniques like RAID.
+Explain the difference between instance-store volumes and EBS volumes.
+
+Instance-Store Volumes: These are temporary block storage volumes that are physically attached to the host computer of an EC2 instance. They provide high I/O performance but are ephemeral (data is lost when the instance is stopped or terminated).
+EBS Volumes: These are persistent block storage volumes that can be attached to EC2 instances. Data on EBS volumes persists even if the instance is stopped or terminated.
+What is EBS-optimized instance?
+An EBS-optimized instance is an Amazon EC2 instance that is optimized for using EBS volumes as the main storage. It provides dedicated network capacity for EBS I/O, ensuring consistent and predictable performance for EBS-backed instances.
+
+=Can you change the size of an EBS volume after creation?
+Yes, you can change the size of an EBS volume, both increasing and decreasing its size, using the Amazon Elastic Block Store (EBS) Management Console, AWS CLI, or SDKs. However, there are some limitations and considerations for resizing volumes.
+
+=What is EBS Encryption?
+EBS Encryption allows you to encrypt your EBS volumes and snapshots using AWS Key Management Service (KMS) keys. This helps protect your data at rest and ensures that even if a volume or snapshot is compromised, the data remains encrypted.
+
+=How does EBS Snapshot Copy work across regions?
+EBS snapshots can be copied to another AWS region. This process involves copying the snapshot's data to the target region and creating a new snapshot. The copied snapshot can then be used to create new volumes in the target region.
+
+=What is Amazon EBS Multi-Attach?
+Amazon EBS Multi-Attach allows you to attach a single EBS volume to multiple EC2 instances in a cluster. This is useful for scenarios like shared data access for high availability, data consistency, and distributed file systems.

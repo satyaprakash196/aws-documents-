@@ -1,0 +1,39 @@
+What is Amazon Elastic File System (EFS)?
+Amazon EFS is a fully managed file storage service that provides scalable and shared file storage for Amazon EC2 instances. It's designed to be highly available and durable, and it supports the Network File System (NFS) protocol.
+
+What are the key benefits of using Amazon EFS?
+=Amazon EFS offers several benefits, including:
+
+Scalability: EFS can automatically scale up or down as your storage needs change.
+Shared File System: Multiple EC2 instances can access the same EFS file system concurrently.
+Elasticity: You don't need to pre-provision storage; it grows and shrinks as files are added or removed.
+Performance: EFS provides low-latency, high-throughput performance suitable for a wide range of workloads.
+=What is the difference between Amazon EFS and Amazon EBS?
+
+EFS: Provides shared, scalable, and fully managed file storage. Multiple instances can access the same EFS file system concurrently.
+EBS: Provides block storage volumes that are attached to individual EC2 instances. Each EBS volume is typically associated with a single instance.
+=What is the security mechanism for Amazon EFS?
+EFS supports various security mechanisms, including:
+
+Network Security: EFS uses Amazon VPC for network isolation and security groups for controlling inbound and outbound traffic.
+IAM: You can control access to EFS using AWS Identity and Access Management (IAM) policies.
+Encryption: EFS supports encryption of data in transit and at rest, including both data and metadata.
+=What are the performance modes available in Amazon EFS?
+Amazon EFS offers two performance modes:
+
+General Purpose Mode (default): Designed for most workloads, it provides balanced throughput and low latency.
+Max I/O Mode: Optimized for high-throughput, low-latency applications that require high levels of read/write operations.
+How is data consistency maintained in Amazon EFS?
+Amazon EFS provides strong file system data consistency. All file operations are atomic, and changes are immediately visible to all instances accessing the file system.
+
+=Can Amazon EFS be mounted on on-premises servers?
+Yes, you can mount Amazon EFS on on-premises servers using AWS Direct Connect or VPN connections. This allows you to extend your file system to on-premises environments.
+
+=What is Amazon EFS Lifecycle Management?
+Amazon EFS Lifecycle Management helps optimize the cost of storage by automatically transitioning files between storage classes (Standard and Infrequent Access) based on access patterns.
+
+=How can you back up Amazon EFS data?
+EFS data can be backed up using the EFS-to-EFS backup feature. You can set up backup policies to create incremental backups of your file system's data.
+
+=What is Amazon EFS Performance Tuner?
+Amazon EFS Performance Tuner is a tool that analyzes the performance characteristics of your EFS file systems and provides recommendations to optimize performance based on your workload.

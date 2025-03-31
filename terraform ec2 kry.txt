@@ -1,0 +1,94 @@
+# create ec2 and attached key pare using terraform
+resource "aws_instance" "web-server" {
+ ami           = "ami-id" #replace you ami id
+ instance_type ="t2.micro"
+ key_name      ="serverkey" #replace you key name
+ 
+ 
+ tags = {
+   Name ="web_app"
+   }
+ }
+ how to ganrete key
+ resource "aws_key_pair" web-app" {
+  key_name ="bike"
+  public_key "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCdMyTo5DAl3V0OR77X7kDW+IjGR1pAR9A/hi79TXavsbtx7rlqzH33BrTjscf2xfAfrSf+siYp7/CQwIlW+JI9C3CXCgdWfosVCN9UC9I3q//lAyk10Epby1Svm8x2mf7e780sUuYGFFJQdKwnW6OPyqmIcEz6PDNb7vdd9m+Tb3Qry3UgJ+0KSWiL8kD7Q9yjfj6H2S60gmUOirrN0oovZtkywnFEqjqYzwrPpzxyNihmuUbuHoShnrVHjOq4z2XxJ/NrvXYF6gGnHF7Ct45NfLBoYeq4Y8AYuVVePf14tYBBYflzOD+Jj0hTyo/RqmTBGYRyvXQod5kxYqPEprMeHSKTX7ayP4mfH7MaMtzYyYVKvdkVVDz3gY92/ntVQ9MxTbrX62HVhfVgFnOopAhxW6t7qdt4sh+sXvMcY9J2f+7BIACkfAiShZiQXgeUF3lycahBfG6BxfFrUHsF8RZNYLu2IJukczOiPT+IZWfBcOKiJRA0PCbqbXNWhX6JZek= root@terraform-server"
+  
+  
+ #create security group and atteched to ec2 using terraform
+  
+   resource "aws_security_group" "my-nsg" {
+    name  ="my-nsg"
+	vpc_id  = aws_default_vpc.my_vpc.id  # Corrected VPC ID reference
+	
+	
+# inbound rull = allow ssh[22]
+ingress {
+  from_port = 22
+   to_port   = 22
+  protocol  = "tcp"
+  cidr_blocks = ["0.0.0.0/0"] #allow anyware
+ }
+ #outbond =allow allow
+  egress {
+   from_port = 0
+   to_port   = 0
+   protocol  = "-1"
+   cidr_blocks = ["0.0.0.0/0"]
+}
+}   
+  
+ # att to ec2 
+ resource "aws_instance" "web-server" {
+ ami           = "ami-id" #replace you ami id
+ instance_type ="t2.micro"
+ key_name      ="serverkey" #replace you key name
+ vpc_security_group_ids = [aws_security_group.my-nsg.id]
+ 
+ 
+ tags = {
+   Name ="web_app"
+   }
+ }
+#create custom VPC  using terraform
+
+ resource "aws_vpc" "my-VPC"{
+ cidr_block ="192.168.0.0/16"
+
+tags = {
+Name ="prod -VPC"
+ }
+}
+
+# create subnet and attach to VPC using terraform 
+
+ resource "aws_subnet" "public-subnet" {
+  cidr_block = "192.168.1.0/24"
+ vpc_id      = aws_vpc.my-vpc.id
+
+tags = {
+Name ="main-subnet"
+ }
+}
+
+ resource "aws_subnet" "privet-subnet" {
+  cidr_block = "192.168.2.0/24"
+ vpc_id      = aws_vpc.my-vpc.id
+
+tags = {
+Name ="privet-subnet"
+ }
+}
+
+
+# create route table and attached  VPC usging terraform
+
+resource "aws_route_table "my-rt" {
+vpc_id  = aws_vpc.my-VPC.id
+
+tags = {
+Name ="my-rt"
+ }
+}
+
+ resource
